@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Weasel's AuthorShare
-Plugin URI: http://www.thedailyblitz.org/?page_id=421
+Plugin URI: http://www.thedailyblitz.org/weasels-authorshare-plugin
 Description: A plugin that allows you to display a percentage share of the published database per author. Requires <a href="http://www.redalt.com/wiki/Role+Manager">Red Alt's Role-Manager</a> plugin for full functionality.
 Author: Andy Moore
 Version: 2.0
