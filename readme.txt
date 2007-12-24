@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Weasel's Authorshare ===
 Contributors: weasello
 Donate link: 
 Tags: comments, spam
