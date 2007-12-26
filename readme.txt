@@ -57,7 +57,7 @@ or
 
 = What is the difference between version 1.5 and 2.0? =
 
-Better documentation!
+Resolved an error with total postcounts greater than 1000; updated documentation
 
 == Screenshots ==
 
