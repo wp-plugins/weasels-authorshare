@@ -1,7 +1,7 @@
 === Weasel's Authorshare ===
 Contributors: weasello
 Donate link: 
-Tags: comments, spam
+Tags: author, tools, share, analysis, percentage
 Requires at least: 2.0.2
 Tested up to: 2.3.1
 Stable tag: trunk
@@ -10,17 +10,17 @@ A plugin that allows you to display a percentage share of the published database
 
 == Description ==
 
-A plugin that allows you to display a percentage share of the published database per author. Requires <a href="http://www.redalt.com/wiki/Role+Manager">Red Alt's Role-Manager</a> plugin for full functionality.
+A plugin that allows you to display a percentage share of the published database per author. Strongly recommend <a href="http://www.im-web-gefunden.de/wordpress-plugins/role-manager/">Role Manager</a> plugin for full functionality.
 
 This plugin should be completely self contained and work totally on its own without source editing. It will add an admin panel named "Author Share" underneath the USERS tab, and will create two new user capabilities to Red Alt's User Roles plugin.If you do not have this plugin, you can manually call the percentage generating function like so:
 
-wz_authorshare(USER_ID,[preface override],[postface override]);
+`wz_authorshare(USER_ID,[preface override],[postface override]);`
+
 or
-wz_authorshare_top10(PRE, POST, DECIMALS, SHOWALL, PUBLICUSERS);
+
+`wz_authorshare_top10(PRE, POST, DECIMALS, SHOWALL, PUBLICUSERS);`
 
 (see installation section for parameter descriptions)
-
-Feel free to use, cut n paste, and all that jazz, or even offer suggestions or make enhancements. All I ask in return is that you drop me a line at weasel@thedailyblitz.org to let me know.
 
 == Installation ==
 
