@@ -8,8 +8,6 @@ Version: 2.0
 Author URI: http://www.thedailyblitz.org
 */
 
-// ##### See one of the two websites listed above for full installation details and instructions.
-
 // ##### ---------- NOTHING USER-CONFIGURABLE AFTER HERE ------------
 
 add_option('wz_authorshare_pre','Percentage Share: ','Preface to Authorshare output'); // ### FIXME: can probably turn this all into an array
@@ -20,18 +18,16 @@ add_option('wz_authorshare_publicusers',array('0' => 'user id'));
 
 function wz_users_split($supplied) { // ### Breaks up the user IDs into an array from comma seperated values
     return preg_split('/\s*,+\s*/', $supplied, -1, PREG_SPLIT_NO_EMPTY);
-  }
+}
   
 function wz_get_nicename($who) {
 	global $wpdb;
-	$sql = "
-  		SELECT
+	$sql = "SELECT
 			user_nicename
 		FROM
 			$wpdb->users U
 		WHERE
-			U.ID = $who
-		";
+			U.ID = $who";
 
 	return($wpdb->get_col($sql));
 }
@@ -121,7 +117,7 @@ or:<br />
 or:<BR />
 <code>wz_authorshare_top10("&#60;li> "," &#60;/li>", 2, 0, "1,2,3,5,9");</code><BR /><BR />
 
-Any questions, comments, bug reports, or feature requests? <a href="mailto:weasel@thedailyblitz.org">Mail the author</a> or <a href="http://www.thedailyblitz.org/?page_id=421">visit the website</a>.</p>';
+Any questions, comments, bug reports, or feature requests? <a href="mailto:weasel@thedailyblitz.org">Mail the author</a> or <a href="http://www.thedailyblitz.org/weasels-authorshare-plugin">visit the website</a>.</p>';
 
  ?> <form method="post">
     <fieldset name="wz_authorshare_pre">
@@ -155,32 +151,18 @@ Any questions, comments, bug reports, or feature requests? <a href="mailto:wease
 function wz_authorshare_percent($who) { // ### this returns the straight percentage from the DB
  global $wpdb;
 
- $totalentries = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->posts WHERE post_status = 'publish'");
- if (0 < $totalentries) {
- 
- $totalentries = number_format($totalentries); 
-  
- if ($who) {
-  $sql = "
-		SELECT
-			ID
-		FROM
-			$wpdb->posts P
-	";
+ $totalentries = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post'");
 
-  $whocount = get_usernumposts($who);
-  if ($totalentries > 0) {
-  	if ($whocount < 1) return(0);
-	else return($whocount / $totalentries * 100);
-  } else return(0);
- }
- } else return(0);
+ if ($totalentries < 1) return(0); else
+   if ($who < 1) return(0); else {
+     $whocount = get_usernumposts($who);
+     return($whocount / $totalentries * 100);
+   } 
 }
 
 function wz_authorshare_go($who, $pre, $post, $decimals) { // ### This grabs the percentage shares and returns it (with pre/post)
   $percent = wz_authorshare_percent($who);
-  $output = $pre . number_format($percent,$decimals) . $post;
-  return $output;
+  return $pre . number_format($percent,$decimals) . $post;
 }
 
 function wz_authorshare($who,$pre='',$post='',$decimals) { // ### This will define default values if none are supplied
