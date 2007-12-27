@@ -4,7 +4,7 @@ Donate link:
 Tags: author, tools, share, analysis, percentage
 Requires at least: 2.0.2
 Tested up to: 2.3.1
-Stable tag: trunk
+Stable tag: 2.0
 
 A plugin that allows you to display a percentage share of the published database per author, with many display options.
 
